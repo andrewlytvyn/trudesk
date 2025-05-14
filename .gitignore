@@ -39,7 +39,7 @@ config.yml
 import.csv
 /src/mailer/templates/promo/
 *.pem
-
+/.nyc_output/
 /public/uploads/tickets/
 /public/uploads/users/
 coverage.html
