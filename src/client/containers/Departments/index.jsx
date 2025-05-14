@@ -42,19 +42,19 @@ class DepartmentsContainer extends React.Component {
 
   onDeleteDepartmentClick (_id) {
     UIKit.modal.confirm(
-      `<h2>Are you sure?</h2>
+      `<h2>Ви впевнені?</h2>
         <p style="font-size: 15px;">
-            <span class="uk-text-danger" style="font-size: 15px;">This is a permanent action.</span> 
+            <span class="uk-text-danger" style="font-size: 15px;">Це незворотна дія.</span> 
         </p>
         <p style="font-size: 12px;">
-            Agents may lose access to resources once this department is deleted.
+            Агенти можуть втратити доступ до ресурсів після видалення цього відділу.
         </p>
         `,
       () => {
         this.props.deleteDepartment({ _id })
       },
       {
-        labels: { Ok: 'Yes', Cancel: 'No' },
+        labels: { Ok: 'Так', Cancel: 'Ні' },
         confirmButtonClass: 'md-btn-danger'
       }
     )
@@ -64,13 +64,13 @@ class DepartmentsContainer extends React.Component {
     return (
       <div>
         <PageTitle
-          title={'Departments'}
+          title={'Відділи'}
           shadow={false}
           rightComponent={
             <div className={'uk-grid uk-grid-collapse'}>
               <div className={'uk-width-1-1 mt-15 uk-text-right'}>
                 <Button
-                  text={'Create'}
+                  text={'Створити'}
                   flat={false}
                   small={true}
                   waves={false}
@@ -95,11 +95,11 @@ class DepartmentsContainer extends React.Component {
                     padding: '8px 8px 8px 27px'
                   }}
                 >
-                  Name
+                  Назва
                 </th>
-                <th style={{ verticalAlign: 'middle', fontSize: 12, textTransform: 'uppercase' }}>Teams</th>
+                <th style={{ verticalAlign: 'middle', fontSize: 12, textTransform: 'uppercase' }}>Команди</th>
                 <th style={{ width: '25%', verticalAlign: 'middle', fontSize: 12, textTransform: 'uppercase' }}>
-                  Groups
+                  Групи
                 </th>
                 <th
                   style={{
@@ -109,7 +109,7 @@ class DepartmentsContainer extends React.Component {
                     textTransform: 'uppercase'
                   }}
                 >
-                  Actions
+                  Дії
                 </th>
               </tr>
             </thead>
@@ -151,14 +151,14 @@ class DepartmentsContainer extends React.Component {
                         {department.get('allGroups') === true && (
                           <div>
                             <h6 className={'text-success'} style={{ fontWeight: 'bold' }}>
-                              All Groups
+                              Усі групи
                             </h6>
                           </div>
                         )}
                         {department.get('publicGroups') === true && (
                           <div>
                             <h6 className={'text-success'} style={{ fontWeight: 'bold' }}>
-                              All Public Groups
+                              Усі публічні групи
                             </h6>
                           </div>
                         )}
@@ -176,7 +176,7 @@ class DepartmentsContainer extends React.Component {
                         <ButtonGroup>
                           {helpers.canUser('departments:update', true) && (
                             <Button
-                              text={'Edit'}
+                              text={'Редагувати'}
                               small={true}
                               waves={true}
                               onClick={() => this.onEditDepartmentClick(department)}
@@ -184,7 +184,7 @@ class DepartmentsContainer extends React.Component {
                           )}
                           {helpers.canUser('departments:delete', true) && (
                             <Button
-                              text={'Delete'}
+                              text={'Видалити'}
                               style={'danger'}
                               small={true}
                               waves={true}

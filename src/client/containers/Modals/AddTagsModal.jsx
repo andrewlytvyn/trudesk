@@ -98,7 +98,7 @@ class AddTagsModal extends React.Component {
     return (
       <BaseModal options={{ bgclose: false }}>
         <div className={'uk-clearfix'}>
-          <h5 style={{ fontWeight: 300 }}>Add Tags</h5>
+          <h5 style={{ fontWeight: 300 }}>Додати теґи</h5>
           <div>
             <form className='nomargin' onSubmit={e => this.onSubmit(e)}>
               <div className='search-container'>
@@ -127,7 +127,7 @@ class AddTagsModal extends React.Component {
               <div className='left' style={{ marginTop: 15 }}>
                 <Button
                   type={'button'}
-                  text={'Clear'}
+                  text={'Очистити'}
                   small={true}
                   flat={true}
                   style={'danger'}
@@ -137,7 +137,7 @@ class AddTagsModal extends React.Component {
               <div className='right' style={{ marginTop: 15 }}>
                 <Button
                   type={'button'}
-                  text={'Cancel'}
+                  text={'Скасувати'}
                   style={'secondary'}
                   small={true}
                   flat={true}
@@ -145,7 +145,7 @@ class AddTagsModal extends React.Component {
                   extraClass={'uk-modal-close'}
                   ref={r => (this.closeButton = r)}
                 />
-                <Button type={'submit'} text={'Save Tags'} style={'success'} small={true} waves={true} />
+                <Button type={'submit'} text={'Зберегти теґи'} style={'success'} small={true} waves={true} />
               </div>
             </form>
           </div>

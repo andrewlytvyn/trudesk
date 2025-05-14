@@ -226,7 +226,7 @@ class MessagesContainer extends React.Component {
       const convoId = $li.attr('data-conversation-id')
       if (action.toLowerCase() === 'delete') {
         UIKit.modal.confirm(
-          'Are you sure you want to delete this conversation?',
+          'Ви впевнені, що хочете видалити цю розмову?',
           function () {
             // Confirm
             self.deleteConversation(convoId)
@@ -309,7 +309,7 @@ class MessagesContainer extends React.Component {
         <Grid>
           <GridItem width={'3-10'} extraClass={'full-height'}>
             <PageTitle
-              title={'Conversations'}
+              title={'Розмови'}
               extraClasses={'page-title-border-right'}
               hideBorderBottom={true}
               rightComponent={
@@ -317,7 +317,7 @@ class MessagesContainer extends React.Component {
                   <div id='convo-actions' style={{ position: 'absolute', top: 20, right: 15 }}>
                     {!this.userListShown && (
                       <a
-                        title='Start Conversation'
+                        title='Почати нову розмову'
                         className='no-ajaxy'
                         style={{ display: 'block', height: 28 }}
                         onClick={e => this.showUserList(e)}
@@ -377,7 +377,7 @@ class MessagesContainer extends React.Component {
                 <div className='search-box'>
                   <input
                     type='text'
-                    placeholder={'Search'}
+                    placeholder={'Пошук'}
                     value={this.userListSearchText}
                     onChange={e => this.onUserListSearchChange(e)}
                   />
@@ -413,11 +413,11 @@ class MessagesContainer extends React.Component {
                 style={{ marginBottom: '41px !important' }}
               >
                 <span className={'conversation-start'}>
-                  Conversation Started on {helpers.formatDate(currentConversation.get('createdAt'), helpers.getLongDateWithTimeFormat())}
+                  Бесіда почалася в {helpers.formatDate(currentConversation.get('createdAt'), helpers.getLongDateWithTimeFormat())}
                 </span>
                 {currentConversation.get('requestingUserMeta').get('deletedAt') && (
                   <span className={'conversation-deleted'}>
-                    Conversation Deleted at {helpers.formatDate(currentConversation.get('requestingUserMeta').get('deletedAt'), helpers.getLongDateWithTimeFormat())}
+                    Бесіду було видалено в {helpers.formatDate(currentConversation.get('requestingUserMeta').get('deletedAt'), helpers.getLongDateWithTimeFormat())}
                   </span>
                 )}
                 <div ref={this.conversationScrollSpy} className={clsx('uk-text-center', 'uk-hidden')}>
@@ -441,7 +441,7 @@ class MessagesContainer extends React.Component {
                           <div className={'message message-left'}>
                             <img
                               src={`/uploads/users/${ownerImage}`}
-                              alt='Profile Image'
+                              alt='Зображення користувача'
                               title={formattedDate}
                               data-uk-tooltip="{pos: 'left', animation: false}"
                             />
@@ -497,7 +497,7 @@ class MessagesContainer extends React.Component {
                   <input
                     type='text'
                     name={'chatMessage'}
-                    placeholder={'Type your message...'}
+                    placeholder={'Введіть ваше повідомлення...'}
                     onKeyDown={e =>
                       this.onSendMessageKeyDown(
                         e,
@@ -506,7 +506,7 @@ class MessagesContainer extends React.Component {
                       )
                     }
                   />
-                  <button type={'submit'}>SEND</button>
+                  <button type={'submit'}>Надіслати</button>
                 </form>
               </div>
             </GridItem>
@@ -514,7 +514,7 @@ class MessagesContainer extends React.Component {
         </Grid>
         <ul className='context-menu'>
           <li data-action={'delete'} style={{ color: '#d32f2f' }}>
-            Delete Conversation
+            Видалити Розмову
           </li>
         </ul>
       </div>

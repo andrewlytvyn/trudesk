@@ -85,7 +85,7 @@ class EasyMDE extends React.Component {
             this.editor.setValue(text)
           },
           extraHeaders: self.props.inlineImageUploadHeaders,
-          errorText: 'Error uploading file: ',
+          errorText: 'Помилка завантаження файлу: ',
           uploadUrl: self.props.inlineImageUploadUrl,
           jsonFieldName: 'filename',
           urlText: '![Image]({filename})'
@@ -123,7 +123,7 @@ class EasyMDE extends React.Component {
     const attachFileDiv = $('<div></div>')
     attachFileDiv
       .addClass('attachFileDesc')
-      .html('<p>Attach images by dragging & dropping or pasting from clipboard.</p>')
+      .html('<p>Прикріплюйте зображення перетягуванням або вставкою з буфера обміну.</p>')
     $el.siblings('.CodeMirror').addClass('hasFileDesc')
     $el
       .siblings('.editor-statusbar')
@@ -155,58 +155,58 @@ class EasyMDE extends React.Component {
         name: 'bold',
         action: Easymde.toggleBold,
         className: 'material-icons mi-bold no-ajaxy',
-        title: 'Bold'
+        title: 'Жирний'
       },
       {
         name: 'italic',
         action: Easymde.toggleItalic,
         className: 'material-icons mi-italic no-ajaxy',
-        title: 'Italic'
+        title: 'Курсив'
       },
       {
         name: 'Title',
         action: Easymde.toggleHeadingSmaller,
         className: 'material-icons mi-title no-ajaxy',
-        title: 'Title'
+        title: 'Заголовок'
       },
       '|',
       {
         name: 'Code',
         action: Easymde.toggleCodeBlock,
         className: 'material-icons mi-code no-ajaxy',
-        title: 'Code'
+        title: 'Код'
       },
       {
         name: 'Quote',
         action: Easymde.toggleBlockquote,
         className: 'material-icons mi-quote no-ajaxy',
-        title: 'Quote'
+        title: 'Цитата'
       },
       {
         name: 'Generic List',
         action: Easymde.toggleUnorderedList,
         className: 'material-icons mi-list no-ajaxy',
-        title: 'Generic List'
+        title: 'Маркований спиоск'
       },
       {
         name: 'Numbered List',
         action: Easymde.toggleOrderedList,
         className: 'material-icons mi-numlist no-ajaxy',
-        title: 'Numbered List'
+        title: 'Нумерований список'
       },
       '|',
       {
         name: 'Create Link',
         action: Easymde.drawLink,
         className: 'material-icons mi-link no-ajaxy',
-        title: 'Create Link'
+        title: 'Додати посилання'
       },
       '|',
       {
         name: 'Toggle Preview',
         action: Easymde.togglePreview,
         className: 'material-icons mi-preview no-disable no-mobile no-ajaxy',
-        title: 'Toggle Preview'
+        title: 'Перемкнути перегляд'
       }
     ]
   }

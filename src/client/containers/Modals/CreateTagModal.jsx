@@ -47,24 +47,24 @@ class CreateTagModal extends React.Component {
       <BaseModal>
         <form className='uk-form-stacked' onSubmit={e => this.onSubmit(e)}>
           <div>
-            <h2 className={'nomargin mb-5'}>Create Tag</h2>
-            <p className='uk-text-muted'>Tags categorize tickets, making it easy to identify issues</p>
+            <h2 className={'nomargin mb-5'}>Створити Тег</h2>
+            <p className='uk-text-muted'>Теги категоризують тікети, полегшуючи ідентифікацію проблем</p>
 
-            <label>Tag Name</label>
+            <label>Назва Тега</label>
             <input
               type='text'
               className={'md-input'}
               name={'name'}
               data-validation='length'
               data-validation-length='min2'
-              data-validation-error-msg='Please enter a valid tag name. Tag name must contain at least 2 characters.'
+              data-validation-error-msg='Будь ласка, введіть коректну назву тегу. Назва тегу має містити щонайменше 2 символи.'
               value={this.state.name}
               onChange={e => this.onNameChange(e)}
             />
           </div>
           <div className='uk-modal-footer uk-text-right'>
-            <Button text={'Close'} extraClass={'uk-modal-close'} flat={true} waves={true} />
-            <Button text={'Create'} type={'submit'} flat={true} waves={true} style={'success'} />
+            <Button text={'Закрити'} extraClass={'uk-modal-close'} flat={true} waves={true} />
+            <Button text={'Додати'} type={'submit'} flat={true} waves={true} style={'success'} />
           </div>
         </form>
       </BaseModal>

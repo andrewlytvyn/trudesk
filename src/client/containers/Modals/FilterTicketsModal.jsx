@@ -197,8 +197,8 @@ class FilterTicketsModal extends React.Component {
             </div>
           </div>
           <div className='uk-modal-footer uk-text-right'>
-            <Button text={'Cancel'} flat={true} waves={true} extraClass={'uk-modal-close'} />
-            <Button text={'Apply Filter'} style={'primary'} flat={false} type={'submit'} />
+            <Button text={'Скасувати'} flat={true} waves={true} extraClass={'uk-modal-close'} />
+            <Button text={'Застосувати фільтр'} style={'primary'} flat={false} type={'submit'} />
           </div>
         </form>
       </BaseModal>

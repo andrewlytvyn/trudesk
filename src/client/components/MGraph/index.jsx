@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import d3 from 'd3'
 import MG from 'metricsgraphics'
 
-const noDataDiv = <div className='no-data-available-text'>No Data Available</div>
+const noDataDiv = <div className='no-data-available-text'>Порожньо!</div>
 
 export default function MGraph (props) {
   const graphRef = useRef()

@@ -45,7 +45,7 @@ class DeleteTicketTypeModal extends React.Component {
   onFormSubmit (e) {
     e.preventDefault()
     if (!this.state.selectedType) {
-      helpers.UI.showSnackbar('Unable to get new ticket type. Aborting...', true)
+      helpers.UI.showSnackbar('Неможливо отримати новий тип квитка. Скасування...', 'error', true)
       return true
     }
 
@@ -84,15 +84,14 @@ class DeleteTicketTypeModal extends React.Component {
           </div>
           <div className='uk-margin-medium-bottom uk-clearfix'>
             <span className='uk-text-danger'>
-              WARNING: This will change all tickets with type <strong>{type.get('name')}</strong> to the selected ticket
-              type.
+              УВАГА: Це змінить всі квитки з типом <strong>{type.get('name')}</strong> на вибраний тип квитка.
               <br />
-              <strong>This is permanent!</strong>
+              <strong>Неможливо скасувати цю дію.</strong>
             </span>
           </div>
           <div className='uk-modal-footer uk-text-right'>
-            <Button text={'Cancel'} flat={true} waves={true} extraClass={'uk-modal-close'} />
-            <Button text={'Delete'} style={'danger'} flat={true} type={'submit'} />
+            <Button text={'Скасувати'} flat={true} waves={true} extraClass={'uk-modal-close'} />
+            <Button text={'Видалити'} style={'danger'} flat={true} type={'submit'} />
           </div>
         </form>
       </BaseModal>

@@ -47,20 +47,20 @@ class GroupsContainer extends React.Component {
 
   onDeleteGroupClick (_id) {
     UIKit.modal.confirm(
-      `<h2>Are you sure?</h2>
+      `<h2>Ви впевнені?</h2>
         <p style="font-size: 15px;">
-            <span class="uk-text-danger" style="font-size: 15px;">This is a permanent action.</span> 
+            <span class="uk-text-danger" style="font-size: 15px;">Це незворотна дія.</span>
         </p>
         <p style="font-size: 12px;">
-            Agents may lose access to resources once this group is deleted.
+            Агенти можуть втратити доступ до ресурсів після видалення цієї групи.
         </p>
-        <span>Groups that are associated with ticket cannot be deleted.</span>
+        <span>Групи, які пов'язані з квитком, не можуть бути видалені.</span>
         `,
       () => {
         this.props.deleteGroup({ _id })
       },
       {
-        labels: { Ok: 'Yes', Cancel: 'No' },
+        labels: { Ok: 'Так', Cancel: 'Ні' },
         confirmButtonClass: 'md-btn-danger'
       }
     )
@@ -99,11 +99,11 @@ class GroupsContainer extends React.Component {
           <TableCell style={{ textAlign: 'right', paddingRight: 15 }}>
             <ButtonGroup>
               {helpers.canUser('groups:update', true) && (
-                <Button text={'Edit'} small={true} waves={true} onClick={() => this.onEditGroupClick(group.toJS())} />
+                <Button text={'Змінити'} small={true} waves={true} onClick={() => this.onEditGroupClick(group.toJS())} />
               )}
               {helpers.canUser('groups:delete', true) && (
                 <Button
-                  text={'Delete'}
+                  text={'Видалити'}
                   style={'danger'}
                   small={true}
                   waves={true}
@@ -119,12 +119,12 @@ class GroupsContainer extends React.Component {
     return (
       <div>
         <PageTitle
-          title={'Customer Groups'}
+          title={'Групи клієнтів'}
           rightComponent={
             <div className={'uk-grid uk-grid-collapse'}>
               <div className={'uk-width-1-1 mt-15 uk-text-right'}>
                 <Button
-                  text={'Create'}
+                  text={'Створити'}
                   flat={false}
                   small={true}
                   waves={false}

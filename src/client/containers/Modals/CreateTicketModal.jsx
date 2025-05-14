@@ -190,16 +190,16 @@ class CreateTicketModal extends React.Component {
               className={'md-input'}
               data-validation='length'
               data-validation-length={`min${viewdata.get('ticketSettings').get('minSubject')}`}
-              data-validation-error-msg={`Please enter a valid Subject. Subject must contain at least ${viewdata
+              data-validation-error-msg={`Введіть тему. Мінімум ${viewdata
                 .get('ticketSettings')
-                .get('minSubject')} characters.`}
+                .get('minSubject')} символів.`}
             />
           </div>
           <div className='uk-margin-medium-bottom'>
             <Grid>
               {allowAgentUserTickets && (
                 <GridItem width={'1-3'}>
-                  <label className={'uk-form-label'}>Owner</label>
+                  <label className={'uk-form-label'}>Власник</label>
                   <SingleSelect
                     showTextbox={true}
                     items={mappedAccounts}
@@ -210,7 +210,7 @@ class CreateTicketModal extends React.Component {
                 </GridItem>
               )}
               <GridItem width={allowAgentUserTickets ? '2-3' : '1-1'}>
-                <label className={'uk-form-label'}>Group</label>
+                <label className={'uk-form-label'}>Група</label>
                 <SingleSelect
                   showTextbox={false}
                   items={mappedGroups}
@@ -225,7 +225,7 @@ class CreateTicketModal extends React.Component {
           <div className='uk-margin-medium-bottom'>
             <Grid>
               <GridItem width={'1-3'}>
-                <label className={'uk-form-label'}>Type</label>
+                <label className={'uk-form-label'}>Тип</label>
                 <SingleSelect
                   showTextbox={false}
                   items={mappedTicketTypes}
@@ -238,7 +238,7 @@ class CreateTicketModal extends React.Component {
                 />
               </GridItem>
               <GridItem width={'2-3'}>
-                <label className={'uk-form-label'}>Tags</label>
+                <label className={'uk-form-label'}>Теґи</label>
                 <SingleSelect
                   showTextbox={false}
                   items={mappedTicketTags}
@@ -250,7 +250,7 @@ class CreateTicketModal extends React.Component {
             </Grid>
           </div>
           <div className='uk-margin-medium-bottom'>
-            <label className={'uk-form-label'}>Priority</label>
+            <label className={'uk-form-label'}>Пріорітет</label>
             <div
               ref={i => (this.priorityLoader = i)}
               style={{ height: '32px', width: '32px', position: 'relative' }}
@@ -291,7 +291,7 @@ class CreateTicketModal extends React.Component {
             </div>
           </div>
           <div className='uk-margin-medium-bottom'>
-            <span>Description</span>
+            <span>Опис</span>
             <div className='error-border-wrap uk-clearfix'>
               <EasyMDE
                 ref={i => (this.issueMde = i)}
@@ -302,14 +302,14 @@ class CreateTicketModal extends React.Component {
               />
             </div>
             <span style={{ marginTop: '6px', display: 'inline-block', fontSize: '11px' }} className={'uk-text-muted'}>
-              Please try to be as specific as possible. Please include any details you think may be relevant, such as
+            Спробуйте бути якомога конкретнішими. Вкажіть усі важливі деталі, наприклад, кроки діагностики.
               {/* eslint-disable-next-line react/no-unescaped-entities */}
-              troubleshooting steps you've taken.
+              
             </span>
           </div>
           <div className='uk-modal-footer uk-text-right'>
-            <Button text={'Cancel'} flat={true} waves={true} extraClass={'uk-modal-close'} />
-            <Button text={'Create'} style={'primary'} flat={true} type={'submit'} />
+            <Button text={'Скасувати'} flat={true} waves={true} extraClass={'uk-modal-close'} />
+            <Button text={'Створити'} style={'primary'} flat={true} type={'submit'} />
           </div>
         </form>
       </BaseModal>

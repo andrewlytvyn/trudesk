@@ -151,8 +151,9 @@ class CreateAccountModal extends React.Component {
             </div>
             <div className='user-heading-content'>
               <h2>
-                <span className={'uk-text-truncate'}>Create Account</span>
-                <span className='sub-heading'>Please provide account details below</span>
+                <span className={'uk-text-truncate'}>Створити Акаунт </span>
+                <span className='sub-heading'>Будь ласка, надайте деталі облікового запису нижче
+                </span>
               </h2>
             </div>
           </div>
@@ -160,7 +161,7 @@ class CreateAccountModal extends React.Component {
         <div style={{ margin: '24px 24px 0 24px' }}>
           <form className='uk-form-stacked' onSubmit={e => this.onFormSubmit(e)}>
             <div className='uk-margin-medium-bottom'>
-              <label className='uk-form-label'>Username</label>
+              <label className='uk-form-label'>Ім’я користувача</label>
               <input
                 type='text'
                 className={'md-input'}
@@ -168,12 +169,12 @@ class CreateAccountModal extends React.Component {
                 onChange={e => this.onInputChanged(e, 'username')}
                 data-validation={'length'}
                 data-validation-length={'min4'}
-                data-validation-error-msg={'Username must contain at least 4 characters.'}
+                data-validation-error-msg={'Імя користувача має містити щонайменше 4 символи.'}
               />
             </div>
             <div className='uk-margin-medium-bottom uk-clearfix'>
               <div className='uk-float-left' style={{ width: '50%', paddingRight: '20px' }}>
-                <label className={'uk-form-label'}>Name</label>
+                <label className={'uk-form-label'}>Повне ім’я</label>
                 <input
                   type='text'
                   className={'md-input'}
@@ -181,11 +182,11 @@ class CreateAccountModal extends React.Component {
                   onChange={e => this.onInputChanged(e, 'fullname')}
                   data-validation={'length'}
                   data-validation-length={'min1'}
-                  data-validation-error-msg={'Name must contain at least 1 character.'}
+                  data-validation-error-msg={'Імя має містити щонайменше 1 символ.'}
                 />
               </div>
               <div className='uk-float-left uk-width-1-2'>
-                <label className={'uk-form-label'}>Title</label>
+                <label className={'uk-form-label'}>Посада</label>
                 <input
                   type='text'
                   className={'md-input'}
@@ -196,7 +197,7 @@ class CreateAccountModal extends React.Component {
             </div>
             <div className='uk-margin-medium-bottom uk-clearfix'>
               <div className='uk-float-left' style={{ width: '50%', paddingRight: '20px' }}>
-                <label className={'uk-form-label'}>Password</label>
+                <label className={'uk-form-label'}>Пароль</label>
                 <input
                   type='password'
                   className={'md-input'}
@@ -206,7 +207,7 @@ class CreateAccountModal extends React.Component {
                 />
               </div>
               <div className='uk-float-left uk-width-1-2'>
-                <label className={'uk-form-label'}>Confirm Password</label>
+                <label className={'uk-form-label'}>Повторіть пароль</label>
                 <input
                   type='password'
                   className={'md-input'}
@@ -214,7 +215,7 @@ class CreateAccountModal extends React.Component {
                   value={this.passwordConfirm}
                   onChange={e => this.onInputChanged(e, 'passwordConfirm')}
                   data-validation='confirmation'
-                  data-validation-error-msg={'Password does not match'}
+                  data-validation-error-msg={'Паролі не співпадають.'}
                 />
               </div>
             </div>
@@ -229,7 +230,7 @@ class CreateAccountModal extends React.Component {
               />
             </div>
             <div className='uk-margin-medium-bottom'>
-              <label className={'uk-form-label'}>Role</label>
+              <label className={'uk-form-label'}>Роль</label>
               <SingleSelect
                 items={roles}
                 width={'100'}
@@ -241,13 +242,13 @@ class CreateAccountModal extends React.Component {
                 style={{ display: 'inline-block', marginTop: '10px', fontWeight: 'bold', color: '#d85030' }}
                 ref={r => (this.roleSelectErrorMessage = r)}
               >
-                Please select a role for this user
+                Будь ласка, виберіть роль для цього користувача
               </span>
             </div>
             {!this.isAgentRole && (
               <div>
                 <div className='uk-margin-medium-bottom'>
-                  <label className='uk-form-label'>Groups</label>
+                  <label className='uk-form-label'>Групи</label>
                   <MultiSelect
                     items={groups}
                     onChange={e => this.onGroupSelectChange(e)}
@@ -258,7 +259,7 @@ class CreateAccountModal extends React.Component {
                     style={{ display: 'inline-block', marginTop: '3px', fontWeight: 'bold', color: '#d85030' }}
                     ref={r => (this.groupSelectErrorMessage = r)}
                   >
-                    Please select a group for this user.
+                    Будь ласка, виберіть групу для цього користувача.
                   </span>
                 </div>
               </div>
@@ -266,14 +267,14 @@ class CreateAccountModal extends React.Component {
             {this.isAgentRole && (
               <div>
                 <div className='uk-margin-medium-bottom'>
-                  <label className='uk-form-label'>Teams</label>
+                  <label className='uk-form-label'>Команди</label>
                   <MultiSelect items={teams} onChange={() => {}} ref={r => (this.teamSelect = r)} />
                 </div>
               </div>
             )}
             <div className='uk-modal-footer uk-text-right'>
-              <Button text={'Close'} flat={true} waves={true} extraClass={'uk-modal-close'} />
-              <Button text={'Create Account'} flat={true} waves={true} style={'success'} type={'submit'} />
+              <Button text={'Закрити'} flat={true} waves={true} extraClass={'uk-modal-close'} />
+              <Button text={'Створити акаунт'} flat={true} waves={true} style={'success'} type={'submit'} />
             </div>
           </form>
         </div>

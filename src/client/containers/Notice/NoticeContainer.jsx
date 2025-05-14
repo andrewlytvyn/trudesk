@@ -40,7 +40,7 @@ class NoticeContainer extends React.Component {
 
   onActivateNotice (noticeId) {
     if (!helpers.canUser('notices:activate')) {
-      helpers.UI.showSnackbar('Unauthorized', true)
+      helpers.UI.showSnackbar('Немає дозволу', true)
       return
     }
 
@@ -61,7 +61,7 @@ class NoticeContainer extends React.Component {
       .then(() => {
         this.props.socket.emit(NOTICE_CLEAR)
 
-        helpers.UI.showSnackbar('Notice has been deactivated', false)
+        helpers.UI.showSnackbar('Оголошення було деактивовано', false)
       })
       .catch(err => {
         Log.error(err)
@@ -77,7 +77,8 @@ class NoticeContainer extends React.Component {
     UIKit.modal.confirm(
       `<h2>Are you sure?</h2>
         <p style="font-size: 15px;">
-            <span class="uk-text-danger" style="font-size: 15px;">This is a permanent action.</span> 
+            <span class="uk-text-danger" style="font-size: 15px;">Ця дія не підлягає скасуванню.</span>
+
         </p>
         `,
       () => {
@@ -134,62 +135,62 @@ class NoticeContainer extends React.Component {
     })
     return (
       <div>
-        <PageTitle
-          title={'Notices'}
-          shadow={false}
-          rightComponent={
-            <div className={'uk-grid uk-grid-collapse'}>
-              <div className={'uk-width-1-1 mt-15 uk-text-right'}>
-                {helpers.canUser('notices:deactivate') && (
-                  <Button
-                    text={'Deactivate'}
-                    flat={false}
-                    small={true}
-                    waves={false}
-                    extraClass={'hover-accent'}
-                    onClick={() => this.onDeactivateNotice()}
-                  />
-                )}
-                {helpers.canUser('notices:create') && (
-                  <Button
-                    text={'Create'}
-                    flat={false}
-                    small={true}
-                    waves={false}
-                    extraClass={'hover-success'}
-                    onClick={() => {
-                      this.props.showModal('CREATE_NOTICE')
-                    }}
-                  />
-                )}
-              </div>
-            </div>
-          }
-        />
-        <PageContent padding={0} paddingBottom={0} extraClass={'uk-position-relative'}>
-          <Table
-            style={{ margin: 0 }}
-            extraClass={'pDataTable'}
-            stickyHeader={true}
-            striped={true}
-            headers={[
-              <TableHeader key={0} width={45} height={50} text={''} />,
-              <TableHeader key={1} width={'20%'} text={'Name'} />,
-              <TableHeader key={2} width={'60%'} text={'Message'} />,
-              <TableHeader key={3} width={'10%'} text={'Date'} />,
-              <TableHeader key={4} width={150} text={''} />
-            ]}
-          >
-            {!this.props.loading && this.props.notices.size < 1 && (
-              <TableRow clickable={false}>
-                <TableCell colSpan={10}>
-                  <h5 style={{ margin: 10 }}>No Notices Found</h5>
-                </TableCell>
-              </TableRow>
-            )}
-            {tableItems}
-          </Table>
-        </PageContent>
+      <PageTitle
+        title={'Оголошення'}
+        shadow={false}
+        rightComponent={
+        <div className={'uk-grid uk-grid-collapse'}>
+          <div className={'uk-width-1-1 mt-15 uk-text-right'}>
+          {helpers.canUser('notices:deactivate') && (
+            <Button
+            text={'Деактивувати'}
+            flat={false}
+            small={true}
+            waves={false}
+            extraClass={'hover-accent'}
+            onClick={() => this.onDeactivateNotice()}
+            />
+          )}
+          {helpers.canUser('notices:create') && (
+            <Button
+            text={'Створити'}
+            flat={false}
+            small={true}
+            waves={false}
+            extraClass={'hover-success'}
+            onClick={() => {
+              this.props.showModal('CREATE_NOTICE')
+            }}
+            />
+          )}
+          </div>
+        </div>
+        }
+      />
+      <PageContent padding={0} paddingBottom={0} extraClass={'uk-position-relative'}>
+        <Table
+        style={{ margin: 0 }}
+        extraClass={'pDataTable'}
+        stickyHeader={true}
+        striped={true}
+        headers={[
+          <TableHeader key={0} width={45} height={50} text={''} />,
+          <TableHeader key={1} width={'20%'} text={'Назва'} />,
+          <TableHeader key={2} width={'60%'} text={'Повідомлення'} />,
+          <TableHeader key={3} width={'10%'} text={'Дата'} />,
+          <TableHeader key={4} width={150} text={''} />
+        ]}
+        >
+        {!this.props.loading && this.props.notices.size < 1 && (
+          <TableRow clickable={false}>
+          <TableCell colSpan={10}>
+            <h5 style={{ margin: 10 }}>Оголошення не знайдено</h5>
+          </TableCell>
+          </TableRow>
+        )}
+        {tableItems}
+        </Table>
+      </PageContent>
       </div>
     )
   }

@@ -99,12 +99,12 @@ class AccountsSettingsContainer extends React.Component {
     return (
       <div className={active ? 'active' : 'hide'}>
         <SettingItem
-          title='Allow User Registration'
-          subtitle='Allow users to create accounts on the login screen.'
+          title='Дозволити реєстрацію'
+          subtitle='Дозволити користувачам реєструватися в системі'
           component={
             <EnableSwitch
               stateName='allowUserRegistration'
-              label='Enable'
+              label='Увімкнути'
               checked={this.allowUserRegistrationEnabled}
               onChange={e => {
                 this.updateSetting('allowUserRegistration', 'allowUserRegistration:enable', e.target.checked)
@@ -113,13 +113,13 @@ class AccountsSettingsContainer extends React.Component {
           }
         />
         <SettingItem
-          title={'Password Complexity'}
-          subtitle={'Require users passwords to meet minimum password complexity'}
-          tooltip={'Minimum 8 characters with uppercase and numeric.'}
+          title={'Складність паролів'}
+          subtitle={'Вимагати від користувачів використовувати паролі з певною складністю.'}
+          tooltip={'Мінімум 8 символів, одна велика літера, одна маленька літера, один номер та один спеціальний символ.'}
           component={
             <EnableSwitch
               stateName={'accountsPasswordComplexity'}
-              label={'Enable'}
+              label={'Увімкнути'}
               checked={this.passwordComplexityEnabled}
               onChange={e => {
                 this.updateSetting('accountsPasswordComplexity', 'accountsPasswordComplexity:enable', e.target.checked)
