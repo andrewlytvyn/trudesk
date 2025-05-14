@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-expressions */
-var async = require('async')
-var expect = require('chai').expect
-var request = require('supertest')
+const async = require('async')
+const expect = require('chai').expect
+let request = require('supertest')
 
 describe('api/users.js', function () {
-  var tdapikey = 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
+  const tdapikey = 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
   request = request('http://localhost:3111')
 
   it('should return users', function (done) {
@@ -30,7 +30,7 @@ describe('api/users.js', function () {
   })
 
   it('should create new user', function (done) {
-    var user = {
+    const user = {
       aUsername: 'new.user.1',
       aPass: 'SecureP@ssW0rd',
       aPassConfirm: 'SecureP@ssW0rd',
@@ -114,7 +114,7 @@ describe('api/users.js', function () {
     async.waterfall(
       [
         function (cb) {
-          var userSchema = require('../../src/models/user')
+          const userSchema = require('../../src/models/user')
           userSchema.getUserByUsername('fake.user', function (err, user) {
             if (err) return cb(err)
 
@@ -122,7 +122,7 @@ describe('api/users.js', function () {
           })
         },
         function (user, cb) {
-          var u = {
+          const u = {
             aTitle: 'The Title',
             aRole: global.userRoleId
           }
@@ -147,15 +147,15 @@ describe('api/users.js', function () {
   })
 
   it('should add user to group', function (done) {
-    var groupSchema = require('../../src/models/group')
-    var userSchema = require('../../src/models/user')
+    const groupSchema = require('../../src/models/group')
+    const userSchema = require('../../src/models/user')
 
     groupSchema.getGroupByName('TEST', function (err, group) {
       expect(err).to.not.exist
 
       userSchema.getUserByUsername('trudesk', function (err, user) {
         expect(err).to.not.exist
-        var u = {
+        const u = {
           aFullname: user.fullname,
           aEmail: user.email,
           aGrps: [group._id],
@@ -182,15 +182,15 @@ describe('api/users.js', function () {
   })
 
   it('should remove user from group', function (done) {
-    var groupSchema = require('../../src/models/group')
-    var userSchema = require('../../src/models/user')
+    const groupSchema = require('../../src/models/group')
+    const userSchema = require('../../src/models/user')
 
     groupSchema.getGroupByName('TEST', function (err, group) {
       expect(err).to.not.exist
 
       userSchema.getUserByUsername('trudesk', function (err, user) {
         expect(err).to.not.exist
-        var u = {
+        const u = {
           aId: user._id,
           aFullname: user.fullname,
           aEmail: user.email,
@@ -217,7 +217,7 @@ describe('api/users.js', function () {
   })
 
   it('should update user preference', function (done) {
-    var data = {
+    const data = {
       preference: 'autoRefreshTicketGrid',
       value: false
     }

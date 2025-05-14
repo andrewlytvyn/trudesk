@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-expressions */
 /* globals server socketServer */
-var expect = require('chai').expect
-var winston = require('../src/logger')
-var async = require('async')
-var mongoose = require('mongoose')
-var path = require('path')
-var _ = require('lodash')
+const expect = require('chai').expect
+const winston = require('../src/logger')
+const async = require('async')
+let mongoose = require('mongoose')
+const path = require('path')
+const _ = require('lodash')
 
-var database, db
-var CONNECTION_URI = 'mongodb://localhost:27017/polonel_trudesk31908899'
+let database, db
+const CONNECTION_URI = 'mongodb://localhost:27017/polonel_trudesk31908899'
 
 // Global Setup for tests
 before(function (done) {
@@ -35,7 +35,7 @@ before(function (done) {
           })
         },
         function (cb) {
-          var counter = require('../src/models/counters')
+          const counter = require('../src/models/counters')
           counter.create(
             {
               _id: 'tickets',
@@ -49,11 +49,11 @@ before(function (done) {
           )
         },
         function (cb) {
-          var typeSchema = require('../src/models/tickettype')
+          const typeSchema = require('../src/models/tickettype')
           typeSchema.insertMany([{ name: 'Task' }, { name: 'Issue' }], cb)
         },
         function (cb) {
-          var statusSchema = require('../src/models/ticketStatus')
+          const statusSchema = require('../src/models/ticketStatus')
           statusSchema.insertMany(
             [
               { name: 'New', uid: 0, isLocked: true },
@@ -68,7 +68,7 @@ before(function (done) {
           require('../src/settings/defaults').init(cb)
         },
         function (cb) {
-          var roleSchema = require('../src/models/role')
+          const roleSchema = require('../src/models/role')
           roleSchema.getRoles(function (err, r) {
             expect(err).to.not.exist
             expect(r).to.be.a('array')
@@ -79,8 +79,8 @@ before(function (done) {
           })
         },
         function (cb) {
-          var userSchema = require('../src/models/user')
-          var adminRole = _.find(global.roles, { normalized: 'admin' })
+          const userSchema = require('../src/models/user')
+          const adminRole = _.find(global.roles, { normalized: 'admin' })
           expect(adminRole).to.exist
           userSchema.create(
             {
@@ -100,8 +100,8 @@ before(function (done) {
           )
         },
         function (cb) {
-          var userSchema = require('../src/models/user')
-          var supportRole = _.find(global.roles, { normalized: 'support' })
+          const userSchema = require('../src/models/user')
+          const supportRole = _.find(global.roles, { normalized: 'support' })
           expect(supportRole).to.exist
           global.supportRoleId = supportRole._id
 
@@ -123,8 +123,8 @@ before(function (done) {
           )
         },
         function (cb) {
-          var userSchema = require('../src/models/user')
-          var userRole = _.find(global.roles, { normalized: 'user' })
+          const userSchema = require('../src/models/user')
+          const userRole = _.find(global.roles, { normalized: 'user' })
           expect(userRole).to.exist
           global.userRoleId = userRole._id
           userSchema.create(
@@ -146,7 +146,7 @@ before(function (done) {
           )
         },
         function (cb) {
-          var groupSchema = require('../src/models/group')
+          const groupSchema = require('../src/models/group')
           groupSchema.create(
             {
               name: 'TEST'
@@ -160,7 +160,7 @@ before(function (done) {
           )
         },
         function (cb) {
-          var ws = require('../src/webserver')
+          const ws = require('../src/webserver')
           ws.init(
             db,
             function (err) {

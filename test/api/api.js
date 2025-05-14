@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-expressions */
 /* globals server */
-var expect = require('chai').expect
-var request = require('supertest')
-var superagent = require('superagent')
+const expect = require('chai').expect
+const request = require('supertest')
+const superagent = require('superagent')
 
 describe('api/api.js', function () {
-  var agent = superagent.agent()
+  const agent = superagent.agent()
 
   it('should return 401 for failed login', function (done) {
-    var user = { username: 'test', password: '' }
+    const user = { username: 'test', password: '' }
     agent
       .post('http://localhost:3111/api/v1/login')
       .send(user)
@@ -21,7 +21,7 @@ describe('api/api.js', function () {
   })
 
   it('should login', function (done) {
-    var user = { username: 'trudesk', password: '$2a$04$350Dkwcq9EpJLFhbeLB0buFcyFkI9q3edQEPpy/zqLjROMD9LPToW' }
+    const user = { username: 'trudesk', password: '$2a$04$350Dkwcq9EpJLFhbeLB0buFcyFkI9q3edQEPpy/zqLjROMD9LPToW' }
     request(server)
       .post('/api/v1/login')
       .send(user)
@@ -29,7 +29,7 @@ describe('api/api.js', function () {
   })
 
   // it('should have access token', function(done) {
-  //    var userSchema = require('../../src/models/user');
+  //    const userSchema = require('../../src/models/user');
   //    userSchema.getUserByUsername('trudesk', function(err, user) {
   //        expect(err).to.not.exist;
   //        expect(user).to.be.a('object');
