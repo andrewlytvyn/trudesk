@@ -1,5 +1,4 @@
 exclude_paths:
-  - mobile/**
   - logs/**
   - docs/**
   - src/public/css/**

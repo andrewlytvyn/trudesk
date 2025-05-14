@@ -266,7 +266,6 @@
   "standard": {
     "ignore": [
       "/public/",
-      "/mobile/",
       "/src/public/js/plugins/",
       "/src/public/js/vendor/"
     ],
