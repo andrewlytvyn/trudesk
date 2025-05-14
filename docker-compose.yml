@@ -1,7 +1,10 @@
 
 services:
   trudesk:
-    image: polonel/trudesk:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    #image: polonel/trudesk:latest
     restart: always
     ports:
       - "8118:8118"
