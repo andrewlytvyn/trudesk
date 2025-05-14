@@ -70,3 +70,4 @@ public/uploads/assets/upload/
 stats\.json
 dist/
 *.heapsnapshot
+.DS_Store
